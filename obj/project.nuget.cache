@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "HoEyGU8aGdIORXHNY4eVHObGUZJeje49SLFKIOHcIaz9JdTp6y7w/gbc7qD3uhv4AzS4IceQT5i6pLfXx7bOAA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bairesqa\\Desktop\\CoderHouse ++\\CoderHouse\\Integrando APIs con ADO.NET\\Integrando APIs con ADO.NET.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bairesqa\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\bairesqa\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\bairesqa\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\bairesqa\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\bairesqa\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\bairesqa\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
