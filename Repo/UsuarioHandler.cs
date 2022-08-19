@@ -1,12 +1,12 @@
 ﻿using ConsoleApp.Models;
-using System.Data;
+using Integrando_APIs_con_ADO.NET.DTOs;
 using System.Data.SqlClient;
 
 namespace ConsoleApp
 {
     public class UsuarioHandler : DBHandler
     {
-        public List<Usuario> GetUsuario()
+        public static List<Usuario> GetUsuario()
         {
             List<Usuario> usuarios = new List<Usuario>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -38,6 +38,33 @@ namespace ConsoleApp
                 }
             }
             return usuarios;
+        }
+
+        public static bool ModificarUsuario(DTOUsuario usu)
+        {
+            bool devolucion = false;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                string query = "UPDATE USUARIO SET NOMBREUSUARIO= @nombreusuario, CONTRASEÑA=@contraseña WHERE Id=@id";
+
+                SqlParameter nombreUsuParam = new SqlParameter("nombreusuario", System.Data.SqlDbType.VarChar) { Value = usu.NombreUsuario };
+                SqlParameter contraParam = new SqlParameter("contraseña", System.Data.SqlDbType.VarChar) { Value = usu.Contraseña };
+                SqlParameter idParam = new SqlParameter("id", System.Data.SqlDbType.BigInt) { Value=usu.Id };
+
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.Add(idParam);
+                    command.Parameters.Add(contraParam);
+                    command.Parameters.Add(nombreUsuParam);
+                    int columnasAfec = command.ExecuteNonQuery();
+                    if (columnasAfec > 0) devolucion = true;
+                }
+                conn.Close();
+            }
+
+            return devolucion;
         }
     }
 }
