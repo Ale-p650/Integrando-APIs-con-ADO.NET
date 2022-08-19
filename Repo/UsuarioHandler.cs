@@ -45,8 +45,11 @@ namespace ConsoleApp
             bool devolucion = false;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                string query = "UPDATE USUARIO SET NOMBREUSUARIO= @nombreusuario, CONTRASEÑA=@contraseña WHERE Id=@id";
+                string query = "UPDATE USUARIO SET NOMBRE=@nombre, APELLIDO=@apellido, NOMBREUSUARIO= @nombreusuario, CONTRASEÑA=@contraseña WHERE Id=@id";
 
+
+                SqlParameter nombreParam = new SqlParameter("nombre", System.Data.SqlDbType.VarChar) { Value = usu.Apellido };
+                SqlParameter apelliParam = new SqlParameter("apellido", System.Data.SqlDbType.VarChar) { Value = usu.Nombre };
                 SqlParameter nombreUsuParam = new SqlParameter("nombreusuario", System.Data.SqlDbType.VarChar) { Value = usu.NombreUsuario };
                 SqlParameter contraParam = new SqlParameter("contraseña", System.Data.SqlDbType.VarChar) { Value = usu.Contraseña };
                 SqlParameter idParam = new SqlParameter("id", System.Data.SqlDbType.BigInt) { Value=usu.Id };
@@ -55,6 +58,8 @@ namespace ConsoleApp
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
+                    command.Parameters.Add(nombreParam);
+                    command.Parameters.Add(apelliParam);
                     command.Parameters.Add(idParam);
                     command.Parameters.Add(contraParam);
                     command.Parameters.Add(nombreUsuParam);
