@@ -1,4 +1,4 @@
-﻿using ConsoleApp.Models;
+﻿using Integrando_APIs_con_ADO.NET.DTOs;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -6,7 +6,7 @@ namespace ConsoleApp
 {
     public class VentasHandler : DBHandler
     {
-        public List<Venta> GetVentas()
+        public static List<Venta> GetVentas()
         {
             List<Venta> ventas = new List<Venta>();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -35,5 +35,11 @@ namespace ConsoleApp
             }
             return ventas;
         }
+
+        public static bool CargarVenta(List<DTOProducto> lista, int id)
+        {
+
+        }
     }
 }
+
